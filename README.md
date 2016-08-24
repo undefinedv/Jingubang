@@ -8,4 +8,5 @@ api地址在sql_model里设置
 请在config/database.php里完成数据库配置
 多线程预备:apt-get install python-gevent
 ./sqlmapapi.py -s --adapter="gevent"
-
+更新:请在config/config.php里设定为Jingubang所在目录
+比如本地为:http://127.0.0.1/Jingubang/

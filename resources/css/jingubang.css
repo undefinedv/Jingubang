@@ -1,0 +1,52 @@
+#mask{
+    background:#000;
+    opacity:0.75;
+    filter:alpha(opacity=75);
+    width:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:1000;
+}
+.message{
+    background:#FFFFFF;
+    position:fixed;
+    left:30%;
+    top:30%;
+    z-index:1001;
+    overflow-y:auto;
+}
+.close{
+    color:red;
+    right:5px;
+    top:3px;
+}
+.key{
+    width:541px;
+    height:400px;
+}
+.addhobbytip{
+    border:none;
+    background:gold;
+}
+.addhobby{
+    background:url(http://image.tupian114.com/20140418/09380166.png) no-repeat;
+    width:36px;
+    height:37px;
+    cursor:pointer;
+    position:absolute;
+    background-size:70% 70%;
+    left:73px;
+    top:202px;
+    border: none;
+    text-indent:-999em;
+}
+
+.addwindow{
+    background:#FFFFFF;
+    position:fixed;
+    left:30%;
+    top:30%;
+    z-index:1001;
+    overflow-y:auto;
+}
