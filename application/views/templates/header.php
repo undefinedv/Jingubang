@@ -6,10 +6,10 @@
     <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
     <script src="<?php echo base_url('resources/js/jingubang.js');?>"></script>
     <link rel="stylesheet" href="<?php echo base_url('resources/css/jingubang.css');?>">
-    <a href="<?php echo base_url('index.php/jingubang'); ?>">返回主页</a>
-    <a href="<?php echo base_url('index.php/jingubang/register'); ?>">注册用户</a>
-    <a href="<?php echo base_url('index.php/jingubang/login'); ?>">用户登陆</a>
-    <a href="<?php echo base_url('index.php/jingubang/logout'); ?>">退出登陆</a>
+    <a href="<?php echo base_url('index.php?/jingubang'); ?>">返回主页</a>
+    <a href="<?php echo base_url('index.php?/jingubang/register'); ?>">注册用户</a>
+    <a href="<?php echo base_url('index.php?/jingubang/login'); ?>">用户登陆</a>
+    <a href="<?php echo base_url('index.php?/jingubang/logout'); ?>">退出登陆</a>
     <em>&copy;2016</em>
 </head>
 <body>

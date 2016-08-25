@@ -77,7 +77,7 @@ $db['default'] = array(
 	'dsn'	=> 'mysql:host=localhost;dbname=Jingubang',
 	'hostname' => 'localhost',
 	'username' => 'webadmin',
-	'password' => 'undefined',
+	'password' => 'zteam',
 	'database' => '',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
